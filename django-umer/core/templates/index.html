@@ -1,0 +1,25 @@
+{% comment %} <form action="{% url 'charge' %}" method="post">
+  {% csrf_token %}
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="{{key}}"
+          data-description="Payment Gateway"
+          data-amount="50000"
+          data-currency="pkr"
+          data-locale="auto">
+  </script>
+</form> {% endcomment %}
+
+{% for subscription in subscriptions %}
+  <h2>{{ subscription.name }}</h2>
+  <form action="create-checkout-session/" method="post">
+    {% csrf_token %}
+    <button type="submit" id="checkout-button">{{subscription.name}}</button>
+    <input type="hidden" name="subscription_id" value="{{ subscription.product_id }}">
+    {% comment %} <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="{{ key }}"
+            data-description="{{ subscription.name }}"
+            data-amount="{{ subscription.price }}"
+            data-currency="pkr"
+            data-locale="auto"> {% endcomment %}
+  </form>
+{% endfor %}

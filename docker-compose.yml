@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+
+  backend:
+    build: ./django-umer
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./django-umer:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+
+  admin-ui:
+    build: ./admin-ui
+    ports:
+      - "3001:3000"
+    depends_on:
+      - backend
+
+  blog-ui:
+    build: ./flone-ui-umer-blog
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend

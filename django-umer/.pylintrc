@@ -1,0 +1,48 @@
+[FORMAT]
+# Increase the maximum line length to suppress C0301
+max-line-length = 180
+
+[MESSAGES CONTROL]
+enable =
+    missing-module-docstring,
+    missing-class-docstring,
+    missing-function-docstring,
+    missing-final-newline,
+    invalid-name,
+    too-many-locals,
+    too-many-branches,
+    too-many-statements,
+    too-many-lines,
+    too-many-public-methods,
+    too-many-instance-attributes,
+    too-many-arguments,
+    too-many-nested-blocks,
+    too-many-return-statements,
+    too-many-boolean-expressions,
+    too-many-ancestors
+
+disable =
+    too-many-instance-attributes,
+    len-as-condition,
+    too-few-public-methods,
+    anomalous-backslash-in-string,
+    no-else-return,
+    simplifiable-if-statement,
+    too-many-arguments,
+    duplicate-code,
+    no-name-in-module,
+    no-member,
+    raw-checker-failed,
+    bad-inline-option,
+    locally-disabled,
+    file-ignored,
+    suppressed-message,
+    useless-suppression,
+    deprecated-pragma,
+    trailing-whitespace,
+    trailing-newlines,
+    import-error,
+    broad-exception-raised,
+    bare-except,
+    broad-exception-caught,
+    ungrouped-imports

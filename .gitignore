@@ -1,0 +1,8 @@
+# Ignore Django virtual environment
+django-umer/venv/
+
+# Ignore node_modules in admin-ui
+admin-ui/node_modules/
+
+# Ignore node_modules in flone-ui-umer-blog
+flone-ui-umer-blog/node_modules/

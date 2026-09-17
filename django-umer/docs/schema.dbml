@@ -1,0 +1,100 @@
+CustomUser
+-
+id INT PK
+email VARCHAR UNIQUE
+password VARCHAR
+is_creator BOOLEAN
+is_editor BOOLEAN
+is_Premium_user BOOLEAN
+stripe_checkout_id TEXT
+key VARCHAR(100)
+is_verified_email BOOLEAN
+is_social_login BOOLEAN
+is_super_user BOOLEAN
+
+Category
+-
+id INT PK
+Category_name VARCHAR(20) UNIQUE
+
+Tag
+-
+id INT PK
+tag_name VARCHAR(50)
+
+PhoneNumber
+-
+id INT PK
+user_id INT FK >- CustomUser.id
+number VARCHAR(17)
+verified BOOLEAN
+
+
+Post
+-
+id INT PK
+Post_Textfield TEXT
+content TEXT
+image_Field VARCHAR(PATH)
+Categories INT FK >- Category.id
+Tags INT FK >- Tag.id #ManytoMany
+user_id INT FK >- CustomUser.id
+views INT
+Featured BOOLEAN
+Top BOOLEAN
+like INT
+Comment INT
+isPremium BOOLEAN
+scheduling_date_time DATETIME
+
+Comment
+-
+id INT PK
+Text TEXT
+Post_id INT FK >- Post.id
+user_id INT FK >- CustomUser.id
+parent_comment INT FK >- Comment.id
+like INT
+
+Like
+-
+id INT PK
+user_id INT FK >- CustomUser.id
+comment_id INT FK >- Comment.id
+Post_id INT FK >- Post.id
+
+Subscription
+-
+id INT PK
+name VARCHAR(100)
+product_id VARCHAR(100)
+price FLOAT
+
+Notification
+-
+id INT PK
+notification VARCHAR(100)
+post_id INT FK >- Post.id
+to_user INT FK >- CustomUser.id
+is_post_notification BOOLEAN
+
+Items
+-
+id INT PK
+discount float
+fullDescription TEXT
+image VARCHAR(PATH)
+name VARCHAR(100)
+offerEnd DATETIME
+price FLOAT
+rating INT
+salesCount INT
+shortDescription TEXT
+sku VARCHAR(10)
+stock INT
+subscription_id VARCHAR(100)
+subscription_id_eur VARCHAR(100)
+subscription_id_de VARCHAR(100)
+user_id INT FK >- CustomUser.id
+tags int FK >- Category.id  #ManytoMany
+categories int FK >- Tag.id   #ManytoMany

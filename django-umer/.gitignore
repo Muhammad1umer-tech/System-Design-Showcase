@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual environments
+venv/
+venv2/
+venv3/
+.venv/
+
+# Django
+db.sqlite3
+staticfiles/
+
+# Uploaded media - keep only the seed image used by seed_data
+images/*
+!images/posts/
+images/posts/*
+!images/posts/image-3.jpg
+
+# Environment / secrets
+.env
+
+# Test / coverage artifacts
+.coverage
+coverage_report.txt
+new_coverage.txt
+new_coverage_report.txt
+htmlcov/
+.pytest_cache/
+
+# Editor / OS
+.idea/
+.DS_Store
+Thumbs.db
